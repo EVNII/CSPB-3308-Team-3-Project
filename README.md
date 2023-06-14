@@ -28,7 +28,7 @@ To provide quality sheet music for all the world’s musicians
   
 ### Risks to project completion, possibly including: - S
 
-    [TODO]
+    Test pull request permissions
 
 ### New language or working environment 
 HTML, Java, Python, GitHub, SQL, and Linux
