@@ -5,7 +5,7 @@
 * Team/Product Name: **The Lightning Bolts**
 * Team members: list the name, git username, and email for each member. - S
   
-| Name           	| Git Useranme    	| Email                 	|
+| Name           	| Git Username    	| Email                 	|
 |----------------	|-----------------	|-----------------------	|
 | Yuzhou Shen    	| EVNII           	| yush1599@colorado.edu 	|
 | Sean Keery     	| skibum55        	| seke4820@colorado.edu 	|
