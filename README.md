@@ -18,7 +18,7 @@
 
 ### Vision statement:
    
-To provide quality sheet music for all the world’s musicians
+*To provide quality sheet music for all the world’s musicians
 
 ### Motivation: why are you working on this project?
 
