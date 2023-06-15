@@ -48,12 +48,12 @@ HTML, CSS, Java, JavaScript, Python, GitHub, SQL, and Linux
 
 ### Mitigation Strategy for above risks
 
-Assign Sreesha as Product Owner
-Focus on Minimum Viable Product for first release
-Work on mountain tops to avoid spring conditions 
-Identify open source software which can be leveraged instead of new software development efforts
-Stands ups and daily summaries in Slack
-Pair programming and peer review 
+* Assign Sreesha as Product Owner
+* Focus on Minimum Viable Product for first release
+* Work on mountain tops to avoid spring conditions 
+* Identify open source software which can be leveraged instead of new software development efforts
+* Stands ups and daily summaries in Slack
+* Pair programming and peer review 
 
 ### Development method: scrum, kanban, waterfall: with specifics!
 
