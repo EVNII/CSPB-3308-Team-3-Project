@@ -57,9 +57,7 @@ HTML, CSS, Java, JavaScript, Python, GitHub, SQL, and Linux
 
 ### Development method: scrum, kanban, waterfall: with specifics!
 
-Waterfall: list out specific requirements wanted at start. We will distribute different parts of the project for different members. Then we will have weekly updates checking up on progress. Lastly once all features are done, then we can combine them into a final version.
-
-Scrum: Define epics, create user stories, prioritize work, assign work to pairs, demo work, accept stories, iterate.
+Scrum: Define epics, create user stories, prioritize work, assign work to pairs, demo work, accept stories, iterate. We will try to first break each feature down to a list of smaller features. Then we can distribute these out and have meetings about any blocks, progress, etc. Once smaller features are done, we can combine these to finish the sprint and have a working feature of the final project. At the end, then we can combine all working prototypes to have a finished project.
 
 ### Project Tracking Software link (Trello is most common): 
 https://trello.com/w/thelightningboltscspb3308group3
