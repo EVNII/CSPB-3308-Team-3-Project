@@ -62,3 +62,13 @@ Scrum: Define epics, create user stories, prioritize work, assign work to pairs,
 ### Project Tracking Software link (Trello is most common): 
 https://trello.com/w/thelightningboltscspb3308group3
 
+## Setup python Environment.
+
+```shell
+pip install -r requirements.txt
+```
+
+## Run
+```shell
+flask --app app/main run --debug
+```

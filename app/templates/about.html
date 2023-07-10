@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block navbar %} 
+{{ navbar('About') }}
+{% endblock navbar%}
+
+{% block content %}
+<p>
+    This is {% block title %}About{% endblock title%} Page.
+</p>
+{% endblock content%}
