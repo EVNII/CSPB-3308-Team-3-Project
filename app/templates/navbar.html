@@ -1,0 +1,42 @@
+{% macro navbar(currentpage, user=None) -%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">MusicVerse</a>
+
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+
+        <div class="navbar-nav">
+          <a class="nav-item nav-link {{'active' if currentpage.strip().lower()=='home' }}" href="{{url_for('index')}}">Home</a>
+          <a class="nav-item nav-link {{'active' if currentpage.strip().lower()=='about' }}" href="{{url_for('about')}}">About</a>
+        </div>
+
+
+        <form class="form-inline">
+          <div class="input-group">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+
+      {%- if user != None %}
+      <div class="rounded-circle">
+        <img src="#" class="rounded-circle" style="width: 36px;"
+        alt="Avatar" />
+      </div>
+      {% else %}
+      <button type="button" class="btn btn-primary btn-sm">Log in</button>
+      {% endif %}
+
+    </div>
+
+
+  </nav>
+{%- endmacro %}
