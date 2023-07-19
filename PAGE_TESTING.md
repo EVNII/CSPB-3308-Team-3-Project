@@ -11,19 +11,22 @@
 + List of tests for verifying the rendering of the page
 
 ### Score Product Page
-**img/scoreproductpage.jpg**
+
 ![Score Product Page](img/scoreproductpage.jpg)
 After visiting the browse or search pages, the user can click on an individual score to view it, check the price
 and potentially add it to their cart.
 
 ### Shopping Cart
-**img/shoppingcart.jpg**
+
+![Shopping Cart](img/shoppingcart.jpg)
 The user can check the status of their cart and checkout if desired.
 
 ### Billing Details
-**img/billingdetails.jpg**
+
+![Billing Details](img/billingdetails.jpg)
 Part 1 of the checkout process. The user must enter necessary info to complete a purchase.
 
 ### Confirmation Purchase
-**img/confirmationpurchase.jpg**
+
+![Confirmation Purchase](img/confirmationpurchase.jpg)
 The user must provide a payment for their order.
