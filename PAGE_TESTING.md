@@ -2,7 +2,7 @@
 ## MusicVerse by The Lightning Bolts
 ### CSPB 3308 Group 3
 
-### Requirements
+### Requirements for Milestone 4
 + Page Title
 + Page Description (include a mockup or hand drawn image of the page)
 + Parameters needed for the page
