@@ -12,6 +12,7 @@
 
 ### Score Product Page
 **img/scoreproductpage.jpg**
+![Score Product Page](img/scoreproductpage.jpg)
 After visiting the browse or search pages, the user can click on an individual score to view it, check the price
 and potentially add it to their cart.
 
