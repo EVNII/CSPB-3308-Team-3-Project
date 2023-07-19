@@ -13,6 +13,12 @@ This week we just focused a bit more on the user and what the persona of the use
 - User stories entered into [Trello](https://trello.com/b/Oz0v3nr9/musicverse-by-the-lightning-bolts)
 - Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
 
+### Mark Wilkening
+
+- Setup Trello for group project
+- Watched Trello tutorials for improved project management
+- Monday standup attendance
+
 ## Week 5
 Trello Screenshot:
 ![](img/Trello_2023-07-14_08-08-17.png)
@@ -25,4 +31,9 @@ Trello Screenshot:
 - Created login page for milestone 4
 - User stories updated in [Trello](https://trello.com/b/Oz0v3nr9/musicverse-by-the-lightning-bolts)
 - Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
+
+### Mark Wilkening
+
+- Created wireframe page design for Shopping Cart, Billing Details, Confirmation Purchase, and Score Product Page.
+- Monday standup attendance
   
