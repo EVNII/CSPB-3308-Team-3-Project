@@ -22,7 +22,7 @@ Trello Screenshot:
 
 ### Sean Keery
 
-- Created menu page
+- Created login page for milestone 4
 - User stories updated in [Trello](https://trello.com/b/Oz0v3nr9/musicverse-by-the-lightning-bolts)
 - Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
   
