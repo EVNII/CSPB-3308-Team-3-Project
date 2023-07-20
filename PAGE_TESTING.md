@@ -10,6 +10,9 @@
 + Link destinations for the page
 + List of tests for verifying the rendering of the page
 
+### Menu Page
+Description: This page would be the menu the user first sees when they open up the website. It would display a browse section.
+
 ### Score Product Page
 
 ![Score Product Page](img/scoreproductpage.jpg)
