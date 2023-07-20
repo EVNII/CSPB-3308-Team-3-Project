@@ -13,8 +13,8 @@
 ### Menu Page
 
 
-Description: This page would be the menu the user first sees when they open up the website. It would display a browse section with you scores and recently viewed tracks. It would also have the search bar up at the top and a pull down menu for loging in, setting, etc. At the bottom of the page it would have information about contact and terms of use.
-Parameters needed: search feature, a way to brows scores and recent items, drop down navigation, footer of page. 
+Description: This page would be the menu the user first sees when they open up the website. It would display a browse section with you scores and recently viewed tracks. It would also have the search bar up at the top and a pull down menu for loging in, setting, etc. At the bottom of the page it would have information about contact and terms of use.\
+Parameters needed: search feature, a way to brows scores and recent items, drop down navigation, footer of page. \
 Data needed: just some of the user information to show a section to browse of their scores or viewed items
 Link destinations: this would be just to the other pages using the drop down menu as well as the search feature to link to the results.
 List of tests: Does the formatting load with logos, color schemes, etc? Can someone scroll and browse different viewed items or items owned. Do the links go to different pages of the website? Can someone hover over the drop down menu to display the options?
