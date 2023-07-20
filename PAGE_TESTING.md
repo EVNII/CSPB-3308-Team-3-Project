@@ -17,7 +17,7 @@ Description: This page would be the menu the user first sees when they open up t
 Parameters needed: search feature, a way to brows scores and recent items, drop down navigation, footer of page. \
 Data needed: just some of the user information to show a section to browse of their scores or viewed items\
 Link destinations: this would be just to the other pages using the drop down menu as well as the search feature to link to the results.\
-List of tests: Does the formatting load with logos, color schemes, etc? Can someone scroll and browse different viewed items or items owned. Do the links go to different pages of the website? Can someone hover over the drop down menu to display the options?\
+List of tests: Does the formatting load with logos, color schemes, etc? Can someone scroll and browse different viewed items or items owned. Do the links go to different pages of the website? Can someone hover over the drop down menu to display the options?
 
 ### Score Product Page
 
