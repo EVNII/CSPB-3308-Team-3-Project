@@ -22,37 +22,37 @@ List of tests: Does the formatting load with logos, color schemes, etc? Can some
 ### Score Product Page
 
 ![Score Product Page](img/scoreproductpage.jpg)
-Description: After visiting the browse or search pages, the user can click on an individual score to view it, check the price
-and potentially add it to their cart. This page would need access to the folder holding the image previews for each score.
-Parameters needed: Access to site menu, access to cart, list of recently viewed scores, price of currently loaded score
-Link destination: main menu, cart, back
-List of tests: This would include the preview image displaying properly and all text and buttons in the correct location.
+Description: After visiting the browse or search pages, the user can click on an individual score to view it, check the price  
+and potentially add it to their cart. This page would need access to the folder holding the image previews for each score.  
+Parameters needed: Access to site menu, access to cart, list of recently viewed scores, price of currently loaded score  
+Link destination: main menu, cart, back  
+List of tests: This would include the preview image displaying properly and all text and buttons in the correct location.  
 
 ### Shopping Cart
 
 ![Shopping Cart](img/shoppingcart.jpg)
-Description: The user can check the status of their cart and checkout if desired. The page would need access to 
-thumbnail images of the user's selected scores. 
-Parameters needed: items in cart, price of items in cart
-Link destination: main menu, back
-List of tests: This would include ensuring the score selected by the user is displayed in the cart.
+Description: The user can check the status of their cart and checkout if desired. The page would need access to   
+thumbnail images of the user's selected scores.   
+Parameters needed: items in cart, price of items in cart  
+Link destination: main menu, back  
+List of tests: This would include ensuring the score selected by the user is displayed in the cart.  
 
 ### Billing Details
 
 ![Billing Details](img/billingdetails.jpg)
-Description: Part 1 of the checkout process. The user must enter necessary billing info to complete a purchase. 
-Parameters needed: items in cart, total price, name, address, city, state, zip, username/account info
-Link destination: main menu, back to edit cart
-List of tests: This would include ensuring all text and data fields are aligned.
+Description: Part 1 of the checkout process. The user must enter necessary billing info to complete a purchase.   
+Parameters needed: items in cart, total price, name, address, city, state, zip, username/account info  
+Link destination: main menu, back to edit cart  
+List of tests: This would include ensuring all text and data fields are aligned.  
 
 ### Confirmation Purchase
 
 ![Confirmation Purchase](img/confirmationpurchase.jpg)
-Description: The user must provide a payment for their order. 
-Parameters needed: yes/no of purchase went thru, yes/no of authorization to download PDF of score
-Link destination: main menu
-List of tests: This would include checking the CC number given is in a valid format
-and that all text and data fields are aligned. This page would take you back to the home page after purchase.
+Description: The user must provide a payment for their order.   
+Parameters needed: yes/no of purchase went thru, yes/no of authorization to download PDF of score  
+Link destination: main menu  
+List of tests: This would include checking the CC number given is in a valid format  
+and that all text and data fields are aligned. This page would take you back to the home page after purchase.  
 
 ## Search results
 + Page Title: **search results**
