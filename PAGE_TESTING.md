@@ -12,7 +12,7 @@
 
 ### Menu Page
 
-
+![Menu](img/IMG-6084.jpg)
 Description: This page would be the menu the user first sees when they open up the website. It would display a browse section with you scores and recently viewed tracks. It would also have the search bar up at the top and a pull down menu for loging in, setting, etc. At the bottom of the page it would have information about contact and terms of use.\
 Parameters needed: search feature, a way to brows scores and recent items, drop down navigation, footer of page. \
 Data needed: just some of the user information to show a section to browse of their scores or viewed items\
