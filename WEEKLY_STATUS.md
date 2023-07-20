@@ -25,7 +25,14 @@ This week we just focused a bit more on the user and what the persona of the use
 - Added a few user stories to trello
 - Monday standup attendance
 
-## Week 5
+- ### Yuzhou Shen
+
+- Work On SQL Database diagram
+- Learning React
+- Monday standup attendance
+
+
+## Week 5&6
 Trello Screenshot:
 ![](img/Trello_2023-07-14_08-08-17.png)
 
@@ -50,3 +57,7 @@ Trello Screenshot:
 - learned about how to use sql for the user data about their music sheets
 - Monday standup attendance
   
+### Yuzhou Shen
+- Working On SQL CRUD module, (WORKING IN LOCAL BRANCH)
+- Search Result Page Design
+- Monday standup attendance
