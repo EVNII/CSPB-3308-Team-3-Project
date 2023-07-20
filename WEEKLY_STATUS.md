@@ -19,6 +19,12 @@ This week we just focused a bit more on the user and what the persona of the use
 - Watched Trello tutorials for improved project management
 - Monday standup attendance
 
+- ### Max Panning
+
+- looked at other music websites to find ideas
+- Added a few user stories to trello
+- Monday standup attendance
+
 ## Week 5
 Trello Screenshot:
 ![](img/Trello_2023-07-14_08-08-17.png)
