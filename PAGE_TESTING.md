@@ -44,3 +44,18 @@ would include ensuring all text and data fields are aligned.
 ![Confirmation Purchase](img/confirmationpurchase.jpg)
 The user must provide a payment for their order. Testing would include checking the CC number given is in a valid format
 and that all text and data fields are aligned. This page would take you back to the home page after purchase.
+
+## Search results
++ Page Title: **search results**
++ Page Description (include a mockup or hand drawn image of the page):
+    There is **a search box** on the top, which allow user to change their keywords to find the better result.
+    Under the search box, there is a **list of search results**, which show the Title, brief description, the autor, publish data, rating(if applied), meta information, and buttons to view the detail page or add to the cart.
+    ![Search results](img/SearchResult.png)
++ Parameters needed for the page: **Search Keyword, Login Status**
++ Data needed to render the page: **Search result list**
++ Link destinations for the page: **Score Product Page** for the searched scores.
++ List of tests for verifying the rendering of the page
+    - Test if the "Add to Cart" Button hidden if there is no login information
+    - Test if all correct result showing
+    - Test not able to serach with no keywords
+    - Test if the flask server can handle mutiple user searching jobs.
