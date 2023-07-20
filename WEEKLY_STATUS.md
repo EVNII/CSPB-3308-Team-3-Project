@@ -42,4 +42,11 @@ Trello Screenshot:
 
 - Created wireframe page design for Shopping Cart, Billing Details, Confirmation Purchase, and Score Product Page.
 - Monday standup attendance
+
+  
+### Max Panning
+
+- thought about the different pages we would want
+- Added a few user stories to trello
+- Monday standup attendance
   
