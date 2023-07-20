@@ -68,3 +68,28 @@ and that all text and data fields are aligned. This page would take you back to 
     - Test if all correct result showing
     - Test not able to serach with no keywords
     - Test if the flask server can handle mutiple user searching jobs.
+
+## New User Form
+* This page will allow you to create a new user for access to the site.
+* ![User creation wireframe](img/New_User_wireframe.png)
+￼
+* A username, password and password confirmation will be entered in the form for user creation
+* No data is needed to render the page
+* The create user link will return you to the previous page.  A popup will validate the creation of the account.
+* Test #1 will validate the normal flow of creating a user by entering good information.
+* Test #2 will validate an abnormal flow of creating a user by entering mismatched passwords.
+* Test #3 will validate an abnormal flow of creating a user by entering a duplicate username.
+* Test #4 will validate an abnormal flow by attempting sql injection.
+
+
+## Login Page
+* This page will be used by customers and vendors to authenticate to our site.
+* ![Login wireframe](img/Login_wireframe.png)
+* A username and password will be entered in the form to login
+* No data is needed to render the page
+* Link destinations for the page
+* The login button will take you back to the previous page after authentication.
+* The create new user link will take you the the new user form.
+* Test #1 will validate the normal flow of authenticating a user by entering good information.
+* Test #2 will validate a normal flow of an invalid login.
+* Test #3 will validate an abnormal flow authenticating with an attempt of sql injection.
