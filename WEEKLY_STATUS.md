@@ -46,7 +46,7 @@ Trello Screenshot:
   
 ### Max Panning
 
-- thought about the different pages we would want
-- Added a few user stories to trello
+- thought about the different webpages we would want
+- learned about how to use sql for the user data about their music sheets
 - Monday standup attendance
   
