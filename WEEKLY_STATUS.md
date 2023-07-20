@@ -35,6 +35,7 @@ This week we just focused a bit more on the user and what the persona of the use
 ## Week 5&6
 Trello Screenshot:
 ![](img/Trello_2023-07-14_08-08-17.png)
+![](img/Trello_2023-07-20_12-46-59.png)
 
 * Implement some htlm(navigation bar)
 * Design the SQL Diagram
