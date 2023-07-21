@@ -32,7 +32,7 @@
         alt="Avatar" />
       </div>
       {% else %}
-      <button type="button" class="btn btn-primary btn-sm">Log in</button>
+      <a role="button" class="btn btn-primary btn-sm" href="{{url_for('login')}}">Log in</a>
       {% endif %}
 
     </div>

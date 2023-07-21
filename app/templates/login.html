@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block navbar %} 
+{{ navbar('') }}
+{% endblock navbar%}
+
+{% block title %}
+Login
+{% endblock title%}
+
+{% block style %} 
+html, body {
+    height: 100%;
+}
+.login_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.full-height {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    min-width: 300px;  /* occupy 80% of screen width on small devices */
+}
+@media (min-width: 768px) {
+    .login-card {
+        width: 50%;  /* occupy 50% of screen width on medium and large devices */
+    }
+}
+{% endblock style%}
+
+{% block content %}
+<div class="container login_container full-height">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card login-card">
+                <div class="card-header bg-dark text-white">Login</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Username">Username</label>
+                            <input type="email" class="form-control" id="Username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" placeholder="Password">
+                        </div>
+                        <a class="btn btn-dark">Sign In</a>
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
