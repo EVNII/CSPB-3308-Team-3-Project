@@ -1,9 +1,11 @@
 """
-`Database()` class
+`Database` class
+
+This class is a singleton wrapper around SQLite3 execute command ensuring thread safety.
 
 Author: Yuzhou Shen
 
-Last Edit: UTC+8 2023/7/21 21:25
+Last Edit: UTC+8 2023/7/22 10:20
 """
 
 import sqlite3
@@ -13,7 +15,8 @@ from app.utility import Singleton
 
 
 class Database(metaclass=Singleton):
-    """A class wrapp excute from sqlite3, and it is singleton to ensure thread safety.
+    """
+    A singleton class for managing SQLite database operations in a thread-safe manner.
     
     # Example:
     ```python
@@ -73,9 +76,7 @@ class Database(metaclass=Singleton):
 
     def get_conn(self) -> sqlite3.Connection:
         """
-        Get sqlite3.Connection object from database instance, NOT RECOMMEND to manually call this function outside.
-        
-        It is usually to call it in member function with `_lock` to ensure the thread safety.
+        Get a sqlite3 Connection object from the database instance. **Not** intended for external use.
         
         ```python
         
@@ -95,17 +96,17 @@ class Database(metaclass=Singleton):
 
     def close(self):
         """
-        Close the sqlite3 connection, only close whent the database is not use anymore.
+        Close the SQLite3 connection. Should only be called when the database is no longer in use.
         """
         with self._lock:
             self.get_conn().close()
 
     def executescripts(self, sql_query: str) -> None:
         """
-        Excute SQL scripts.
+        Execute a block of SQL scripts.
         
         #Args:
-        - `sql_query` (`str`): SQL Query String
+        - `sql_query` (`str`): The SQL scripts to execute.
             
         #Examples:
         ```python
@@ -124,11 +125,11 @@ class Database(metaclass=Singleton):
 
     def execute(self, sql_query: str, parameters: tuple =()) -> None:
         """
-        Excute ONE LINE of SQL scripts with parameters.
+        Execute a single SQL statement with parameters.
         
         #Args:
-        - `sql_query` (`str`): SQL Query String
-        -  `parameters` (`tuple`): parameter in tuple.
+        - `sql_query` (`str`): The SQL scripts to execute.
+        -  `parameters` (`tuple`): The parameters for the SQL statement.
             
         #Examples:
         ```python
@@ -148,11 +149,11 @@ class Database(metaclass=Singleton):
         
     def execute_many(self, sql_query: str, parameters: tuple =()) -> None:
         """
-        Excute MUTIPLE LINE of SQL scripts with parameters.
+        Execute multiple SQL statements with parameters.
         
         #Args:
-        - `sql_query` (`str`): SQL Query String
-        -  `parameters` (`tuple`): parameter in tuple.
+        - `sql_query` (`str`): The SQL scripts to execute.
+        -  `parameters` (`tuple`): The parameters for the SQL statement.
             
         #Examples:
         ```python
@@ -172,11 +173,14 @@ class Database(metaclass=Singleton):
 
     def fetch_all(self, sql_query: str, parameters: tuple =()) -> List[sqlite3.Row]:
         """
-        Fetch ALL Result FROM SQL scripts with parameters.
+        Fetch all results from an SQL query with parameters.
         
         #Args:
-        - `sql_query` (`str`): SQL Query String
-        -  `parameters` (`tuple`): parameter in tuple.
+        - `sql_query` (`str`): The SQL scripts to execute.
+        -  `parameters` (`tuple`): The parameters for the SQL statement.
+        
+        #Returns:
+        - `List[sqlite3.Row]` : A list of all rows returned by the query.
             
         #Examples:
         ```python
@@ -195,11 +199,14 @@ class Database(metaclass=Singleton):
 
     def fetch_one(self, sql_query: str, parameters: tuple =()) -> sqlite3.Row:
         """
-        Fetch only One Result FROM SQL scripts with parameters.
+        Fetch one result from an SQL query with parameters.
         
-        #Args:
-        - `sql_query` (`str`): SQL Query String
-        -  `parameters` (`tuple`): parameter in tuple.
+       #Args:
+        - `sql_query` (`str`): The SQL scripts to execute.
+        -  `parameters` (`tuple`): The parameters for the SQL statement.
+        
+        #Returns:
+        - `sqlite3.Row` : A list of all rows returned by the query.
             
         #Examples:
         ```python
