@@ -69,9 +69,14 @@ class Database(metaclass=Singleton):
         ```
         
         """
-        if not self.conn == None:
-            self.close()
-            self.conn = None
+        
+        if db_name == self.db_name:
+            return
+        
+        if self.conn:
+            with self._lock:
+                self.close()
+                self.conn = None
         self.db_name = db_name
 
     def get_conn(self) -> sqlite3.Connection:
