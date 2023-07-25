@@ -27,20 +27,37 @@
 | 00003           | A10003      | June 1, 2023 09:00AM MST | SC-3456     | "Blue in Green" by Miles Davis      |
 | 00004           | A10004      | June 1, 2023 09:00AM MST | SC-4567     | "Time Remembered" by Bill Evans     |
 
-| Field Name       | Description                                                                          |
-| :--------------: | :-------------------------------------------------------------:                      |
-| Order ID         | A unique alphanumeric identifier for each order placed.                              | 
-| Customer ID      | A unique alphanumeric identifier for each customer.                                  | 
-| Order Date       | The date and time when the order was placed.                                         | 
-| Product ID       | A unique alphanumeric identifier for each product in the company's product database. |
-| Product Name     | The musical score name and artist name.                                              |
-| Unit Price       | The price to download the PDF of the specific score.                                 |
-| Total Price      | The combined price of all score's purchased within the order.                        |
-| Payment Method   | Visa, MasterCard, AMEX, PayPal, ApplePay, etc.                                       |
-| Billing Address  | The billing address connected to the provided Payment Method.                        |
-| Customer E-mail  | The customer's email address tied to the specific order.                             |
-| Order Notes      | Any additional notes or comments related to the order.                               |
+| Field Name       | Description (data type)                                                                         |
+| :--------------: | :-------------------------------------------------------------:                                 |
+| Order ID         | A unique alphanumeric identifier for each order placed. (int)                                   | 
+| Customer ID      | A unique alphanumeric identifier for each customer.  (varchar)                                  | 
+| Order Date       | The date and time when the order was placed.         (timestamp)                                | 
+| Product ID       | A unique alphanumeric identifier for each product in the company's product database. (varchar)  |
+| Product Name     | The musical score name and artist name.    (text)                                               |
+| Unit Price       | The price to download the PDF of the specific score. (float)                                    |
+| Total Price      | The combined price of all score's purchased within the order. (float)                           |
+| Payment Method   | Visa, MasterCard, AMEX, PayPal, ApplePay, etc.  (enum)                                          |
+| Billing Address  | The billing address connected to the provided Payment Method. (text)                            |
+| Customer E-mail  | The customer's email address tied to the specific order.   (text)                               |
+| Order Notes      | Any additional notes or comments related to the order.    (text)                                |
 
 *To display the customer orders table, you can use the following:*
 
 **SELECT** * **FROM** customer_orders;
+
+*To display a specific customers orders, you can use the following:*
+
+**SELECT** * **FROM** customer_orders WHERE customer_id = XXX;
+
+**TEST CASE: Verify Retrieval of all orders from a specific customer**
+*intended use for a customer to see their past order history*
+
+**Use case name:** Verify order history
+**Description:** Show all past orders from a specific customer
+**Pre-condition:** user has a valid account and has purchased at least 1 score
+**Test steps:**
++ Navigate to account page
++ Select 'Order History'
+**Expected result:** User should be able to see all past orders
+**Actual result:** User is viewing only their orders
+**Status:** Pass/Fail
