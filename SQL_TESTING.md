@@ -19,7 +19,7 @@
 ### Order History Table
 *A SQL table containing all orders placed by customers.*
 
-* example layout: *
+*example layout:*
 | Order ID        | Customer ID | Order Date               | Product ID  | Product Name                        |
 | :-------------: | :---------: | :---------------------:  | :---------: | :---------------------------------: |
 | 00001           | A10001      | June 1, 2023 09:00AM MST | SC-1234     | "Oliloqui Valley" by Herbie Hancock |
