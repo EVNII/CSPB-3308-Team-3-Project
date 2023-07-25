@@ -19,7 +19,7 @@
 ### Customer Orders Table
 *A SQL table containing all orders placed by customers.*
 
-*example layout:*
+*partial example layout:*  
 | Order ID        | Customer ID | Order Date               | Product ID  | Product Name                        |
 | :-------------: | :---------: | :---------------------:  | :---------: | :---------------------------------: |
 | 00001           | A10001      | June 1, 2023 09:00AM MST | SC-1234     | "Oliloqui Valley" by Herbie Hancock |
@@ -47,9 +47,9 @@
 
 *To display a specific customers orders, you can use the following:*
 
-**SELECT** * **FROM** customer_orders WHERE customer_id = XXX;
+**SELECT** * **FROM** customer_orders **WHERE** customer_id = XXX;
 
-**TEST CASE: Verify Retrieval of all orders from a specific customer**
+**TEST CASE: Verify Retrieval of all orders from a specific customer**  
 *intended use for a customer to see their past order history*
 
 **Use case name:** Verify order history  
