@@ -52,12 +52,12 @@
 **TEST CASE: Verify Retrieval of all orders from a specific customer**
 *intended use for a customer to see their past order history*
 
-**Use case name:** Verify order history
-**Description:** Show all past orders from a specific customer
-**Pre-condition:** user has a valid account and has purchased at least 1 score
-**Test steps:**
-+ Navigate to account page
-+ Select 'Order History'
-**Expected result:** User should be able to see all past orders
-**Actual result:** User is viewing only their orders
-**Status:** Pass/Fail
+**Use case name:** Verify order history  
+**Description:** Show all past orders from a specific customer  
+**Pre-condition:** user has a valid account and has purchased at least 1 score  
+**Test steps:**  
++ Navigate to account page  
++ Select 'Order History'  
+**Expected result:** User should be able to see all past orders  
+**Actual result:** User is viewing only their orders  
+**Status:** Pass/Fail  
