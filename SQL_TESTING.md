@@ -16,7 +16,7 @@
 + return values
 + List of tests for verifyiing each access method
 
-### Order History Table
+### Customer Orders Table
 *A SQL table containing all orders placed by customers.*
 
 *example layout:*
@@ -40,3 +40,7 @@
 | Billing Address  | The billing address connected to the provided Payment Method.                        |
 | Customer E-mail  | The customer's email address tied to the specific order.                             |
 | Order Notes      | Any additional notes or comments related to the order.                               |
+
+*To display the customer orders table, you can use the following:*
+
+**SELECT** * **FROM** customer_orders;
