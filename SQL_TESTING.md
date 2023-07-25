@@ -58,6 +58,7 @@
 **Test steps:**  
 + Navigate to account page  
 + Select 'Order History'  
+
 **Expected result:** User should be able to see all past orders  
 **Actual result:** User is viewing only their orders  
 **Status:** Pass/Fail  
