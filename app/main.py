@@ -25,5 +25,5 @@ authorizations = {
     }
 }
     
-api = Api(app, doc='/SwaggerUI/', version='1.0', title='User API', description='A simple User API', authorizations=authorizations, security='apikey')
+api = Api(app, doc='/SwaggerUI/', version='1.0', title='Music Verse API', description='Music Verse RESTful API', authorizations=authorizations, security='apikey')
 api.add_namespace(user_ns, path='/api/user')
