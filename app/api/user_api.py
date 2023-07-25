@@ -6,10 +6,16 @@ from app.models import User
 from app.database import Database
 from app.repository import UserRepository
 from dataclasses import asdict
+from app.models import User
 
-api = Namespace('user', description='User related operations')
+user_ns = Namespace('user', description='User related operations')
 
-user_model = api.model('User', {
+user_login_model = user_ns.model('User', {
+    'username': fields.String(required=True, description='User name'),
+    'password': fields.String(required=True, description='User password'),
+})
+
+user_info_model = user_ns.model('User', {
     'username': fields.String(required=True, description='User name'),
     'password': fields.String(required=True, description='User password'),
 })
@@ -18,10 +24,10 @@ db = Database()
 db.set_dbFile('MusicVerse.db')
 user_repo = UserRepository(db=db)
 
-@api.route('/signup')
+@user_ns.route('/signup')
 class UserSignup(Resource):
-    @api.doc('create_new_user')
-    @api.expect(user_model)
+    @user_ns.doc('create_new_user')
+    @user_ns.expect(user_login_model)
     def post(self):
         '''Create new user'''
         username = request.json.get('username')
@@ -34,10 +40,10 @@ class UserSignup(Resource):
         else:
             return 500
 
-@api.route('/login')
+@user_ns.route('/login')
 class UserLogin(Resource):
-    @api.doc('login_user')
-    @api.expect(user_model)
+    @user_ns.doc('login_user')
+    @user_ns.expect(user_login_model)
     def post(self):
         '''Login user'''
         username = request.json.get('username')
@@ -49,7 +55,7 @@ class UserLogin(Resource):
                 return {'access_token': access_token}, 200
         return {'message': 'Invalid username or password'}, 401
 
-@api.route('/login_info')
+@user_ns.route('/login_info')
 class LoginInfor(Resource):
     @jwt_required()
     def get(self):
