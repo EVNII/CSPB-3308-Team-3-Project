@@ -81,9 +81,10 @@ class UserRepository:
 
         user_row = self.db.fetch_one('SELECT * FROM users WHERE id = ?', (id,))
         user = User(*user_row) if user_row else None
-        with UserRepository.lock:
-            UserRepository.user_cache[user.id] = user
-            self.user_name2id[user.username] = user.id
+        if user:
+            with UserRepository.lock:
+                UserRepository.user_cache[user.id] = user
+                self.user_name2id[user.username] = user.id
         return user
 
     def get_user_by_username(self, username):

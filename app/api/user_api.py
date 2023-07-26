@@ -64,3 +64,16 @@ class LoginInfor(Resource):
         user = user_repo.get_user_by_id(current_user_id)
         return {'logged_in_as': asdict(user)}, 200
 
+@user_ns.route('/account/<int:id>')
+class getUser(Resource):
+    def get(self, id):
+        """Get user information with ID"""
+        user = user_repo.get_user_by_id(id)
+        if user:
+            return {
+                'id': user.id,
+                'username': user.username,
+                'email': user.email,
+            }, 200
+        else:
+            return {'message': f'User with id={id} Not exists'}, 404
