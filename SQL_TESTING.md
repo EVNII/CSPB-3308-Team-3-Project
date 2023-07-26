@@ -42,13 +42,13 @@
 | Order Notes      | Any additional notes or comments related to the order.    (text)                                |
 
 *To display the customer orders table, you can use the following:*
-'''sqlite3
+```sqlite3
 **SELECT** * **FROM** customer_orders;
-'''
+```
 *To display a specific customers orders, you can use the following:*
-'''sqlite3
+```sqlite3
 **SELECT** * **FROM** customer_orders **WHERE** customer_id = XXX;
-'''
+```
 **TEST CASE: Verify Retrieval of all orders from a specific customer**  
 *intended use for a customer to see their past order history*
 
@@ -88,13 +88,13 @@
 **To Test Table Verification:**
 
 *To display the scores table, you can use the following:*
-'''sqlite3
+```sqlite3
 **SELECT** * **FROM** scores;
-'''
+```
 *To display a specific score, you can use the following:*
-'''sqlite3
+```sqlite3
 **SELECT** * **FROM** scores **WHERE** Score_ID = XXX;
-'''
+```
 **Data Access Methods:**    
 Name: Search feature   
 Description: It needs to return the score information depending on certain criteria      
