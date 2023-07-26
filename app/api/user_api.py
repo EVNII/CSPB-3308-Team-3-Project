@@ -77,3 +77,16 @@ class getUser(Resource):
             }, 200
         else:
             return {'message': f'User with id={id} Not exists'}, 404
+        
+@user_ns.route('/account/')
+class getAllUsers(Resource):
+    def get(self):
+        """Get all user information"""
+        users = user_repo.get_all_users()
+        
+        res = [ {'id': user_row.id,
+                 'username': user_row.username,
+                 'email': user_row.email } for user_row in users.values()]
+        
+        if res:
+            return res, 200
