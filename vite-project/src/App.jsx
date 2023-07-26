@@ -43,7 +43,7 @@ const App = () => {
                     )
                 }
             } catch (err) {
-                console.error(err.message);
+                //console.error(err.message);
                 localStorage.removeItem('token');
                 setLogininfo(
                     {

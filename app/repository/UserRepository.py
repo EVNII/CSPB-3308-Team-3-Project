@@ -83,6 +83,7 @@ class UserRepository:
         user = User(*user_row) if user_row else None
         with UserRepository.lock:
             UserRepository.user_cache[user.id] = user
+            self.user_name2id[user.username] = user.id
         return user
 
     def get_user_by_username(self, username):
@@ -91,7 +92,6 @@ class UserRepository:
         return the cached result. Otherwise, query the database and cache the result.
         Usage: user = UserRepository().get_user_by_username('example')
         """
-        
         if username in self.user_name2id:
             id = self.user_name2id[username]
             return self.user_cache[id]
@@ -134,6 +134,14 @@ class UserRepository:
         with self.lock:
             self.user_cache.clear()
             self.user_name2id.clear()
+            
+    def get_users_counts(self) -> int:
+        """
+        Get the number of users.
+        Usage: UserRepository().get_users_counts()
+        """
+        res = self.db.fetch_one('SELECT COUNT(*) FROM users;')
+        return res['COUNT(*)']
 
     def delete_user(self, username):
         """

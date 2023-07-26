@@ -63,3 +63,4 @@ class LoginInfor(Resource):
         current_user_id = get_jwt_identity()
         user = user_repo.get_user_by_id(current_user_id)
         return {'logged_in_as': asdict(user)}, 200
+
