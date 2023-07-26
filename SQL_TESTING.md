@@ -62,3 +62,73 @@
 **Expected result:** User should be able to see all past orders  
 **Actual result:** User is viewing only their orders  
 **Status:** Pass/Fail  
+
+### Scores Table
+*A SQL table containing all scores, their specific information, and price*
+
+*partial example layout:*  
+| Score_ID | Track Title | Author             | Instrument    | Genre         | Downloads | Price |
+| :------: | :---------: | :----------------- | :-----------: | :-----------:| :-------:| :----:|
+| 00001    | Yesterday   | The Beatles        | Bass Guitar   | Classic Rock | 1200000   | 4.99  |
+| 00002    | Piano Man   | Billy Joel         | Piano         | Classic Rock | 567000    | 2.99  |
+| 00003    | Hallelujah  | Leonard Cohen     | String Guitar | Folk Rock    | 546777    | 0.00  |
+| 00004    | Fur Elise   | Ludwig van Beethoven | Violin      | Classical    | 4555542   | 0.00 |
+
+
+| Field Name       | Description (data type)                                                                        |
+| :--------------: | :-------------------------------------------------------------:                                 |
+| Score_ID         | A unique alphanumeric identifier for each score. (int) (Primary Key)                            | 
+| Track Title      | The title of the musical track. (varchar)                                  | 
+| Author           | The author or composer of the musical score. (varchar)                                | 
+| Instrument       | The instrument associated with the musical score. (varchar)                                  |
+| Genre            | The genre of the musical score. (text)                                               |
+| Downloads        | The number of times the score has been downloaded. (int)                                    |
+| Price            | The price of the score for purchase. (float)                           | 
+
+**To Test Table Verification:**
+
+*To display the scores table, you can use the following:*
+
+**SELECT** * **FROM** scores;
+
+*To display a specific score, you can use the following:*
+
+**SELECT** * **FROM** scores **WHERE** Score_ID = XXX;
+
+**Data Access Methods:**    
+Name: Search feature   
+Description: It needs to return the score information depending on certain criteria      
+Parameters: Either an artist, title, or genre   
+return values: The score information    
+
+Name: Popular tracks    
+Description: It needs to return the popular tracks for the menu        
+Parameters: The total dowloads for each track    
+return values: The score information    
+
+
+**TEST CASES:**  
+
+**Use case name:** Search Feature   
+**Description:** Show all relevant scores based on a search   
+**Pre-condition:** user has hit enter on the search box to find a score   
+**Test steps:**    
++ Type into search   
++ Hit enter or hit search button   
+
+**Expected result:** User should be able to see all relevant scores whether that be from searching a genre, title, or author   
+**Actual result:** User is displayed all the relevant scores   
+**Status:** Pass/Fail    
+**Post-conditions:** User is shown all the relevant scores on the screen and can then navigate to one for purchase    
+ <br>
+**Use case name:** Browse on main menu   
+**Description:** Shows populat scores on main menu page   
+**Pre-condition:** user has navigated to the menu page (don't need to be logged in)   
+**Test steps:**    
++ Hit the main menu button   
++ Or visit the website normally   
+
+**Expected result:** User should be able to see a few popular scores in the main feed   
+**Actual result:** User is displayed song title and information on the main page   
+**Status:** Pass/Fail    
+**Post-conditions:** User is then able to click and browse each popular song from the main page   
