@@ -13,7 +13,10 @@ function NavBar() {
         if(loginContext.islogin){
             button =  <div className="grid grid-cols-2 bg-white px-2 py-1 rounded-full  hover:bg-teal-300">
                 <img src={avater} className="h-12 bg-white rounded-full border-teal-200 border-2" /> 
-                <span className="px-3 place-self-center text-lg text-white underline underline-offset-4 hover:no-underline hover:bg-white rounded-full hover:text-teal-300 py-1 bg-teal-400">{loginContext.userInfo.username}</span>
+                <span onClick={()=>{
+                    localStorage.removeItem('token');
+                    window.location.reload(false);
+                }} className="px-3 place-self-center text-lg text-white underline underline-offset-4 hover:no-underline hover:bg-white rounded-full hover:text-teal-300 py-1 bg-teal-400">{loginContext.userInfo.username}</span>
             </div>
         }
         if(isHidden){
@@ -35,6 +38,9 @@ function NavBar() {
                     <div className="text-sm sm:flex-grow">
                         <Link to="/" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4 sm:mb-0 mb-4">
                             Home
+                        </Link>
+                        <Link to="/user/" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4 sm:mb-0 mb-4">
+                            Users
                         </Link>
                     </div>
                     <div>

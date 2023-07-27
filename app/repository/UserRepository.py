@@ -30,7 +30,7 @@ class UserRepository:
         CREATE TABLE IF NOT EXISTS Users(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username VARCHAR(45) UNIQUE NOT NULL,
-            email VARCHAR(128) NOT NULL,
+            email VARCHAR(128),
             password TEXT NOT NULL
         );           
         """)

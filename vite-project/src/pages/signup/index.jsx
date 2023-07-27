@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoginContext from "../../context/LoginContext";
+import { Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -17,7 +18,7 @@ function Login() {
         try {
             const API_URI = import.meta.env.VITE_API_URI;
 
-            const response = await axios.post(`${API_URI}/api/user/login`,
+            await axios.post(`${API_URI}/api/user/signup`,
                 {
                     username,
                     password,
@@ -30,7 +31,6 @@ function Login() {
                 }
 
             );
-            localStorage.setItem('token', response.data.access_token);
 
         } catch (error) {
             if (error.response) {
@@ -39,7 +39,7 @@ function Login() {
             return
         }
 
-        nav('/');
+        nav('/login');
         nav(0);
 
     };
@@ -87,10 +87,10 @@ function Login() {
                         <div>
                             {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
                             <div className="grid grid-cols-2 justify-items-center items-center">
-                            <button  type="submit"
+                            <button type="submit"
                                 className=" bg-teal-300 py-2 px-4 rounded text-white text-md hover:outline-teal-300 hover:bg-white hover:outline hover:text-teal-500"
-                            >Log In</button>
-                            <Link to='/signup' className=" underline text-teal-300 hover:text-teal-400">Sign up</Link>
+                            >Sign up</button>
+                            <Link to='/login' className=" underline text-teal-300 hover:text-teal-400">Log in</Link>
                             </div>
                         </div>
                     </form>
@@ -102,4 +102,4 @@ function Login() {
 
 }
 
-export default Login;
+export default Signup;
