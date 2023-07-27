@@ -62,3 +62,31 @@ Trello Screenshot:
 - Working On SQL CRUD module, (WORKING IN LOCAL BRANCH)
 - Search Result Page Design
 - Monday standup attendance
+
+## Week 7
+Trello Screenshot:
+![](img/Trello_2023-07-27.png)
+
+### Sean Keery
+
+- Created user table for milestone 5
+- Added user stories in [Trello](https://trello.com/b/Oz0v3nr9/musicverse-by-the-lightning-bolts)
+- Trello screenshot uploaded and linked
+- Weekly status added
+- Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
+
+### Mark Wilkening
+
+- Created 
+- Monday standup attendance
+
+  
+### Max Panning
+
+- created
+- Monday standup attendance
+  
+### Yuzhou Shen
+- 
+- Monday standup attendance
+
