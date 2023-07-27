@@ -25,15 +25,26 @@ class UserRepository:
     """Database instance"""
         
     def __init__(self, db:Database):
-        self.db = db  
-        db.executescripts("""
-        CREATE TABLE IF NOT EXISTS Users(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+        self.db = db
+        
+        if db.is_PostreSQL:
+            db.executescripts("""
+            CREATE TABLE IF NOT EXISTS Users(
+            id SERIAL PRIMARY KEY,
             username VARCHAR(45) UNIQUE NOT NULL,
             email VARCHAR(128),
             password TEXT NOT NULL
         );           
         """)
+        else:
+            db.executescripts("""
+            CREATE TABLE IF NOT EXISTS Users(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username VARCHAR(45) UNIQUE NOT NULL,
+                email VARCHAR(128),
+                password TEXT NOT NULL
+            );           
+            """)
         
     def get_all_users(self) -> Dict[int, User]:
         """
@@ -46,6 +57,7 @@ class UserRepository:
             return self.user_cache
         
         all_users = self.db.fetch_all('SELECT * FROM users')
+        print(all_users)
         with self.lock:
             for user_row in all_users:
                 user = User(*user_row) if user_row else None
@@ -63,10 +75,11 @@ class UserRepository:
         
         all_users = self.db.fetch_all('SELECT * FROM users')
         with self.lock:
-            for user_row in all_users:
-                user = User(*user_row) if user_row else None
-                self.user_cache[user.id] = user
-                self.user_name2id[user.username] = user.id
+            if all_users:
+                for user_row in all_users:
+                    user = User(*user_row) if user_row else None
+                    self.user_cache[user.id] = user
+                    self.user_name2id[user.username] = user.id
                 
         return self.user_name2id
     
@@ -79,7 +92,10 @@ class UserRepository:
         if id in UserRepository.user_cache:
             return UserRepository.user_cache[id]
 
-        user_row = self.db.fetch_one('SELECT * FROM users WHERE id = ?', (id,))
+        if self.db.is_PostreSQL:
+            user_row = self.db.fetch_one("SELECT * FROM users WHERE id = '%s'"%(id,))
+        else:
+            user_row = self.db.fetch_one('SELECT * FROM users WHERE id = ?', (id,))
         user = User(*user_row) if user_row else None
         if user:
             with UserRepository.lock:
@@ -97,7 +113,10 @@ class UserRepository:
             id = self.user_name2id[username]
             return self.user_cache[id]
 
-        user_row = self.db.fetch_one('SELECT * FROM users WHERE username = ?', (username,))
+        if self.db.is_PostreSQL:
+            user_row = self.db.fetch_one("SELECT * FROM users WHERE username = '%s'"%(username,))
+        else:
+            user_row = self.db.fetch_one('SELECT * FROM users WHERE username = ?', (username,))
         user = User(*user_row) if user_row else None
         
         if user:
@@ -119,7 +138,12 @@ class UserRepository:
         if not isinstance(password, str):
             raise TypeError('password should be "str" type.')
         
-        self.db.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', (username, email, password))
+        if self.db.is_PostreSQL:
+            self.db.execute("""
+                            INSERT INTO users (username, email, password) VALUES ('%s', '%s', '%s');
+                            """%(username, email, password))
+        else:
+            self.db.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', (username, email, password))
         user = self.get_user_by_username(username)
         with self.lock:
             self.user_cache.clear()
@@ -142,7 +166,9 @@ class UserRepository:
         Usage: UserRepository().get_users_counts()
         """
         res = self.db.fetch_one('SELECT COUNT(*) FROM users;')
-        return res['COUNT(*)']
+        if not self.db.is_PostreSQL:
+            res = res['COUNT(*)']
+        return res
 
     def delete_user(self, username):
         """

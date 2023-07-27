@@ -4,11 +4,12 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
 from app.database import Database
 from app.repository import UserRepository
+from app.constants import db_Connnect, isPostreSQL
 
 util_ns = Namespace('util', description='Utlity\'s Quesring')
 
 db = Database()
-db.set_dbFile('MusicVerse.db')
+db.set_dbFile(db_Connnect, isPostreSQL)
 user_repo = UserRepository(db=db)
 
 @util_ns.route('/user_count')

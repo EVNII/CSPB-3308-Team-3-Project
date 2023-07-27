@@ -7,6 +7,7 @@ from app.database import Database
 from app.repository import UserRepository
 from dataclasses import asdict
 from app.models import User
+from app.constants import db_Connnect, isPostreSQL
 
 user_ns = Namespace('user', description='User related operations')
 
@@ -21,7 +22,7 @@ user_info_model = user_ns.model('User', {
 })
 
 db = Database()
-db.set_dbFile('MusicVerse.db')
+db.set_dbFile(db_Connnect, isPostreSQL)
 user_repo = UserRepository(db=db)
 
 @user_ns.route('/signup')
@@ -32,9 +33,10 @@ class UserSignup(Resource):
         '''Create new user'''
         username = request.json.get('username')
         password = request.json.get('password')
-        if username in user_repo.get_name2id():
-            return {'message': 'User already exists'}, 400
-        
+        if user_repo.get_name2id():
+            if username in user_repo.get_name2id():
+                return {'message': 'User already exists'}, 400
+            
         if user_repo.create_user(username=username, email="noemail@email.com", password=generate_password_hash(password)):
             return {'message': 'User created successfully'}, 201
         else:

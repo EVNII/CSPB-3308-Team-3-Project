@@ -4,7 +4,7 @@ from flask_restx import Api
 from app.api import user_ns, util_ns
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
-import os
+from app.constants import db_Connnect, isPostreSQL
 
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ app.config['JWT_SECRET_KEY'] = 'MusicVerseIsCool'
 jwt = JWTManager(app)
 
 db = Database()
-db.set_dbFile('MusicVerse.db')
+db.set_dbFile(db_Connnect if db_Connnect else 'MusciVerse.db', isPostreSQL)
 
 authorizations = {
     'apikey': {
