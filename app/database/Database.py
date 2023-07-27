@@ -9,6 +9,7 @@ Last Edit: UTC+8 2023/7/22 10:20
 """
 
 import sqlite3
+import psycopg2
 from typing import Optional, List
 from threading import Lock
 from app.utility import Singleton
@@ -16,7 +17,7 @@ from app.utility import Singleton
 
 class Database(metaclass=Singleton):
     """
-    A singleton class for managing SQLite database operations in a thread-safe manner.
+    A singleton class for managing SQLite/PostgreSQL database operations in a thread-safe manner.
     
     # Example:
     ```python
@@ -31,10 +32,12 @@ class Database(metaclass=Singleton):
     """
     db_name: Optional[str]
     """The db File Path"""
-    conn: Optional[sqlite3.Connection]
+    conn: Optional[sqlite3.Connection or psycopg2.connection]
     """Connection instance member"""
     _lock: Lock
     """Thread Lock to ensure the `conn` is thread safe."""
+    is_PostreSQL: bool
+    """Indicatet the types of connection"""
     
     def __init__(self) -> None:
         """
@@ -50,8 +53,9 @@ class Database(metaclass=Singleton):
         self.db_name = None
         self.conn = None
         self._lock = Lock()
+        self.is_PostreSQL = False
 
-    def set_dbFile(self, db_name: str) -> None:
+    def set_dbFile(self, db_name: str, is_PostreSQL:bool=False) -> None:
         """
         set_dbFile() must setup once at least to declare the db file path
         
@@ -69,10 +73,16 @@ class Database(metaclass=Singleton):
         ```
         
         """
-        if not self.conn == None:
-            self.close()
-            self.conn = None
+        
+        if (db_name == self.db_name) and (self.is_PostreSQL == is_PostreSQL):
+            return
+        
+        if self.conn:
+            with self._lock:
+                self.close()
+                self.conn = None
         self.db_name = db_name
+        self.is_PostreSQL = is_PostreSQL
 
     def get_conn(self) -> sqlite3.Connection:
         """
@@ -90,8 +100,11 @@ class Database(metaclass=Singleton):
         ```
         """
         if self.conn == None:
-            self.conn = sqlite3.connect(self.db_name, check_same_thread=False)
-            self.conn.row_factory = sqlite3.Row
+            if self.is_PostreSQL:
+                self.conn = psycopg2.connect(self.db_name)
+            else: 
+                self.conn = sqlite3.connect(self.db_name, check_same_thread=False)
+                self.conn.row_factory = sqlite3.Row
         return self.conn
 
     def close(self):
@@ -118,10 +131,17 @@ class Database(metaclass=Singleton):
         
         ```
         """
-        with self._lock:
-            cursor = self.get_conn().executescript(sql_query)
-            cursor.close()
-            self.get_conn().commit()
+        if self.is_PostreSQL:
+            with self._lock:
+                cursor = self.get_conn().cursor()
+                cursor.execute(sql_query)
+                cursor.close()
+                self.get_conn().commit()
+        else:
+            with self._lock:
+                cursor = self.get_conn().executescript(sql_query)
+                cursor.close()
+                self.get_conn().commit()
 
     def execute(self, sql_query: str, parameters: tuple =()) -> None:
         """
@@ -143,9 +163,17 @@ class Database(metaclass=Singleton):
         ```
         """
         
-        with self._lock:
-            cursor = self.get_conn().execute(sql_query, parameters)
-            self.get_conn().commit()
+        if self.is_PostreSQL:
+            with self._lock:
+                cursor = self.get_conn().cursor()
+                cursor.execute(sql_query)
+                cursor.close()
+                self.get_conn().commit()
+        else:
+            with self._lock:
+                cursor = self.get_conn().execute(sql_query, parameters)
+                cursor.close()
+                self.get_conn().commit()
         
     def execute_many(self, sql_query: str, parameters: tuple =()) -> None:
         """
@@ -191,11 +219,21 @@ class Database(metaclass=Singleton):
         \"\"\", (id1,))
         ```
         """
-        with self._lock:
-            cursor = self.get_conn().execute(sql_query, parameters)
-            rows = cursor.fetchall()
-            cursor.close()
-            return rows
+        if self.is_PostreSQL:
+            with self._lock:
+                cursor = self.get_conn().cursor()
+                cursor.execute(sql_query, parameters)
+                rows = cursor.fetchall()
+                cursor.close()
+                self.get_conn().commit()
+                return rows
+        else:
+            with self._lock:
+                cursor = self.get_conn().execute(sql_query, parameters)
+                rows = cursor.fetchall()
+                cursor.close()
+                self.get_conn().commit()
+                return rows
 
     def fetch_one(self, sql_query: str, parameters: tuple =()) -> sqlite3.Row:
         """
@@ -217,10 +255,20 @@ class Database(metaclass=Singleton):
         \"\"\", (id1,)) # Even there are rows of data in talbe satify the WHERE, only one result will be fetched.
         ```
         """
-        with self._lock:
-            cursor = self.get_conn().execute(sql_query, parameters)
-            row = cursor.fetchone()
-            cursor.close()
-            return row
+        if self.is_PostreSQL:
+            with self._lock:
+                cursor = self.get_conn().cursor()
+                cursor.execute(sql_query, parameters);
+                row = cursor.fetchone()
+                cursor.close()
+                self.get_conn().commit()
+                return row
+        else:
+            with self._lock:
+                cursor = self.get_conn().execute(sql_query, parameters)
+                row = cursor.fetchone()
+                cursor.close()
+                self.get_conn().commit()
+                return row
 
 

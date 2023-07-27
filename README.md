@@ -62,13 +62,41 @@ Scrum: Define epics, create user stories, prioritize work, assign work to pairs,
 ### Project Tracking Software link (Trello is most common): 
 https://trello.com/w/thelightningboltscspb3308group3
 
-## Setup python Environment.
+## BackEnd Part
+
+Render Deployment: https://musicverse-api.onrender.com/SwaggerUI/
+### Setup python Environment.
 
 ```shell
 pip install -r requirements.txt
 ```
 
-## Run
+### Run
 ```shell
-flask --app app/main run --debug
+export FLASK_APP=app/main
+export FLASK_ENV=development
+export MV_DB_CONNECT="<connection str>"
+export MV_DB_ISPOST="<bool>" # is use PostresSQL connection
+flask run
+```
+
+### Swagger UI
+The Back end integered with Swagger UI to check the api usage.
+
+Can access http://127.0.0.1:5000/SwaggerUI/
+
+## FrontEnd Part
+
+Render Deployment: https://musicverse.onrender.com/
+
+### Setup Environment
+```shell
+cd vite-project
+npm install
+```
+
+### Run
+```shell
+echo "VITE_API_URI=http://127.0.0.1:5000" > .env.development
+npm run dev
 ```

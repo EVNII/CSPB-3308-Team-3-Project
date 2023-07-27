@@ -1,1 +1,6 @@
 Flask==2.3.2
+Flask_Cors==4.0.0
+Flask_JWT_Extended==4.5.2
+flask_restx==1.1.0
+psycopg2==2.9.6
+Werkzeug==2.3.6
