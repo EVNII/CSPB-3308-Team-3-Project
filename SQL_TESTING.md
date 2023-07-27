@@ -132,3 +132,58 @@ return values: The score information
 **Actual result:** User is displayed song title and information on the main page   
 **Status:** Pass/Fail    
 **Post-conditions:** User is then able to click and browse each popular song from the main page   
+
+### Users Table
+*This table contains information about users of the system.  This includes customers, sellers and operators.*
+
+*partial example layout:*  
+| UserID          | Username    | Created                  | Surname     | FirstName | Active | Password | RecoveryQuestion  | RecoveryAnswer |
+| :-------------: | :---------: | :---------------------:  | :---------: | :-------: |:------:| :------: | :---------------: | :------------: |
+| 00001           | Me          | June 1, 2023 09:00AM MST | Who         | Herbie    | True   | Pass123  | Favorite color    | Blue           |
+| 00002           | You         | June 1, 2023 10:00AM MST | What        | Keith     | False  | Pass321  | Pet Name          | Marley         |
+| 00003           | They        | June 1, 2023 11:00AM MST | Why         | Miles     | True   | 321Pass  | Mom's middle name | Elmo           |
+| 00004           | Us          | June 1, 2023 04:00PM MST | Because     | Bill      | True   | 123 Pass | College Mascot    | Buff           |
+
+| Field Name       | Description (data type)                                                                         |
+| :--------------: | :-------------------------------------------------------------:                                 |
+| UserID           | A unique numeric identifier representing the user.  Primary key, auto-generated. (int)          | 
+| Username         | A unique alphanumeric identifier representing the login credential.  (varchar)                  | 
+| Created          | The date and time when the user was created; defaults to current time.       (timestamp)        | 
+| Surname          | String containing user's family name. (varchar)                                                 |
+| FirstName        | string containing user's first name.    (varchar)                                               |
+| Active           | Boolean indicating whether user has been disabled; defaults to true. (Boolean)                  |
+| Password Price   | The combined price of all score's purchased within the order. (float)                           |
+| RecoveryQuestion | Security question to use if password is forgotten.  (text)                                      |
+| RecoveryAnswer   | Security question answer for password reset. (text)                                             |
+
+*To display the customer orders table, you can use the following:*
+```sqlite3
+SELECT * users;
+```
+*To display a specific customers orders, you can use the following:*
+```sqlite3
+SELECT * FROM users WHERE UserID = 1;
+```
+
+**Use case name:** Verify login with valid username and password 
+
+**Description:** Test the Google login page 
+
+**Pre-conditions** (Given): User has valid username and password 
+
+**Test steps (When):** 
++ Navigate to login page 
++ Provide valid user name 
++ Provide valid password 
++ Click login button 
+ 
+**Expected result (Then):** User should be able to login
+
+**Actual result :** User is navigated to myscores page with successful login 
+
+**Status :** Pass/Fail
+
+**Fail Notes: ** Login page will come back with an error message to allow user to retry.
+
+Post-conditions: User is authenticated and successfully signed into their account. The account session details are aded to an in-memory cache.
+
