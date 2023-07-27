@@ -91,6 +91,6 @@ npm install
 
 ### Run
 ```shell
-echo "VITE_API_URL=http://127.0.0.1:5000" > .env.development
+echo "VITE_API_URI=http://127.0.0.1:5000" > .env.development
 npm run dev
 ```
