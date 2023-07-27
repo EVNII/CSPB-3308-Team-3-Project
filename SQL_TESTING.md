@@ -89,11 +89,11 @@ SELECT * FROM customer_orders WHERE customer_id = XXX;
 
 *To display the scores table, you can use the following:*
 ```sqlite3
-**SELECT** * **FROM** scores;
+SELECT * FROM scores;
 ```
 *To display a specific score, you can use the following:*
 ```sqlite3
-**SELECT** * **FROM** scores **WHERE** Score_ID = XXX;
+SELECT * FROM scores WHERE Score_ID = XXX;
 ```
 **Data Access Methods:**    
 Name: Search feature   
