@@ -43,11 +43,11 @@
 
 *To display the customer orders table, you can use the following:*
 ```sqlite3
-**SELECT** * **FROM** customer_orders;
+SELECT * FROM customer_orders;
 ```
 *To display a specific customers orders, you can use the following:*
 ```sqlite3
-**SELECT** * **FROM** customer_orders **WHERE** customer_id = XXX;
+SELECT * FROM customer_orders WHERE customer_id = XXX;
 ```
 **TEST CASE: Verify Retrieval of all orders from a specific customer**  
 *intended use for a customer to see their past order history*
