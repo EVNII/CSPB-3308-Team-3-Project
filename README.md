@@ -63,6 +63,8 @@ Scrum: Define epics, create user stories, prioritize work, assign work to pairs,
 https://trello.com/w/thelightningboltscspb3308group3
 
 ## BackEnd Part
+
+Render Deployment: https://musicverse-api.onrender.com/SwaggerUI/
 ### Setup python Environment.
 
 ```shell
@@ -73,6 +75,8 @@ pip install -r requirements.txt
 ```shell
 export FLASK_APP=app/main
 export FLASK_ENV=development
+export MV_DB_CONNECT="<connection str>"
+export MV_DB_ISPOST="<bool>" # is use PostresSQL connection
 flask run
 ```
 
@@ -82,6 +86,8 @@ The Back end integered with Swagger UI to check the api usage.
 Can access http://127.0.0.1:5000/SwaggerUI/
 
 ## FrontEnd Part
+
+Render Deployment: https://musicverse.onrender.com/
 
 ### Setup Environment
 ```shell
