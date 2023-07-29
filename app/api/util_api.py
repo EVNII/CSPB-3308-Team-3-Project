@@ -1,7 +1,11 @@
-from flask import request, jsonify
-from flask_restx import Namespace, Resource, fields
-from werkzeug.security import check_password_hash, generate_password_hash
-from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
+"""
+Module `app.api.util_api` defines Utilities's APIs,
+typically support interfaces to query the status of
+the whole server. And SHOULD NOT have any APIs needs
+JWT.
+"""
+
+from flask_restx import Namespace, Resource
 from app.database import Database
 from app.repository import UserRepository
 from app.constants import db_Connnect, isPostreSQL
@@ -9,12 +13,15 @@ from app.constants import db_Connnect, isPostreSQL
 util_ns = Namespace('util', description='Utlity\'s Quesring')
 
 db = Database()
-db.set_dbFile(db_Connnect, isPostreSQL)
-user_repo = UserRepository(db=db)
+db.set_db_conn_str(db_Connnect, isPostreSQL)
+user_repo = UserRepository(db_ins=db)
+
 
 @util_ns.route('/user_count')
 class UserCount(Resource):
-    @util_ns.doc('create_new_user')
+    """`UserCount` support GET method to show the number of users"""
+
+    @util_ns.doc('get the number of users')
     def get(self):
         '''Query User Counts'''
         return user_repo.get_users_counts()
