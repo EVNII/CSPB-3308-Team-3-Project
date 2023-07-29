@@ -1,4 +1,5 @@
 """Module `app.models` defines the models"""
+from .db import db
 from .user import User
 
-__all__ = ['User']
+__all__ = ['db', 'User']

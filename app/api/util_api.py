@@ -6,15 +6,9 @@ JWT.
 """
 
 from flask_restx import Namespace, Resource
-from app.database import Database
-from app.repository import UserRepository
-from app.constants import db_Connnect, isPostreSQL
+from app.models import db, User
 
 util_ns = Namespace('util', description='Utlity\'s Quesring')
-
-db = Database()
-db.set_db_conn_str(db_Connnect, isPostreSQL)
-user_repo = UserRepository(db_ins=db)
 
 
 @util_ns.route('/user_count')
@@ -24,4 +18,5 @@ class UserCount(Resource):
     @util_ns.doc('get the number of users')
     def get(self):
         '''Query User Counts'''
-        return user_repo.get_users_counts()
+        counts = db.session.query(User.active).filter_by(active=True).count()
+        return counts

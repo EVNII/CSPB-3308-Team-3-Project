@@ -4,9 +4,9 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restx import Api
 from flask_jwt_extended import JWTManager
-from app.database import Database
 from app.api import user_ns, util_ns
-from app.constants import db_Connnect, isPostreSQL
+from app.constants import db_Connnect
+from app.models import db
 
 
 app = Flask(__name__)
@@ -16,10 +16,11 @@ app.config['JWT_SECRET_KEY'] = 'MusicVerseIsCool'
 
 jwt = JWTManager(app)
 
-db = Database()
-db.set_db_conn_str(
-    db_Connnect if db_Connnect else 'MusciVerse.db', isPostreSQL
-)
+app.config["SQLALCHEMY_DATABASE_URI"] = db_Connnect
+db.init_app(app)
+
+with app.app_context():
+    db.create_all()
 
 authorizations = {
     'apikey': {'type': 'apiKey', 'in': 'header', 'name': 'Authorization'}
