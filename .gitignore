@@ -162,3 +162,7 @@ cython_debug/
 # Pipenv
 Pipfile
 Pipfile.lock
+
+
+# Node.js
+node_modules/
