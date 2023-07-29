@@ -1,0 +1,39 @@
+default_language_version:
+  python: python3.11
+repos:
+  - repo: https://github.com/ambv/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+        args: ['--skip-string-normalization', '--line-length=79']
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.4.1
+    hooks:
+      - id: mypy
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        require_serial: true
+  - repo: local
+    hooks:
+    - id: husky-run-pre-commit
+      name: husky
+      language: system
+      entry: ./.husky/pre-commit
+      pass_filenames: false
+      always_run: true
+  - repo: local
+    hooks:
+    - id: husky-run-commit-msg
+      stages: ["commit-msg"]
+      name: husky
+      language: system
+      entry: ./.husky/commit-msg
