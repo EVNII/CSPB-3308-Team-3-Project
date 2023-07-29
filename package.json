@@ -3,6 +3,7 @@
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
     "cz-customizable": "^7.0.0",
+    "eslint": "^8.46.0",
     "husky": "^8.0.3"
   },
   "config": {
@@ -12,8 +13,5 @@
   },
   "scripts": {
     "prepare": "husky install"
-  },
-  "dependencies": {
-    "eslint": "^8.46.0"
   }
 }
