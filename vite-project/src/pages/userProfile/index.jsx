@@ -29,7 +29,7 @@ function UserProfile() {
             <img src={Avater} className="rounded-full border-4" width="80" height="80" />
             <div className="gpa-1 grid grid-cols-1">
               <div className="text-2xl font-bold">{user.username}</div>
-              <div className="text-gray-500">Email: {user.email }</div>
+              <div className="text-gray-500"></div>
             </div>
           </div>
     

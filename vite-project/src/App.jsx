@@ -16,8 +16,13 @@ const App = () => {
             const token = localStorage.getItem('token');
 
             if (!token) {
-                logininfo.islogin = false;
-                logininfo.userInfo = {};
+                setLogininfo(
+                    {
+                        islogin: false,
+                        userInfo: {}
+                    }
+                )
+                return;
             }
 
             try {
@@ -30,7 +35,7 @@ const App = () => {
                     setLogininfo(
                         {
                             islogin: true,
-                            userInfo: response.data.logged_in_as,
+                            userInfo: response.data,
                         }
                     )
                 } else {
