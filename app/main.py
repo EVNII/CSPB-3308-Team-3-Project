@@ -4,7 +4,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restx import Api
 from flask_jwt_extended import JWTManager
-from app.api import user_ns, util_ns
+from app.api import user_ns, util_ns, score_ns
 from app.constants import db_Connnect
 from app.models import db
 
@@ -37,3 +37,4 @@ api = Api(
 )
 api.add_namespace(user_ns, path='/api/user')
 api.add_namespace(util_ns, path='/api/util')
+api.add_namespace(score_ns, path='/api/score')
