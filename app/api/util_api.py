@@ -6,7 +6,7 @@ JWT.
 """
 
 from flask_restx import Namespace, Resource
-from app.models import db, User
+from app.models import db, User, Score
 
 util_ns = Namespace('util', description='Utlity\'s Quesring')
 
@@ -19,4 +19,15 @@ class UserCount(Resource):
     def get(self):
         '''Query User Counts'''
         counts = db.session.query(User.active).filter_by(active=True).count()
+        return counts
+
+
+@util_ns.route('/score_count')
+class ScoreCount(Resource):
+    """`ScoreCount` support GET method to show the number of scores"""
+
+    @util_ns.doc('get the number of scores')
+    def get(self):
+        '''Query Score Counts'''
+        counts = db.session.query(Score).count()
         return counts

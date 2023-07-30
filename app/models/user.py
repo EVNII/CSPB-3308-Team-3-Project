@@ -20,3 +20,5 @@ class User(db.Model):
     password = db.Column(db.Text, nullable=False)
     recovery_question: str = db.Column(db.Text)
     recovery_answer: str = db.Column(db.Text)
+
+    scores = db.relationship('Score', backref='user', lazy=False)
