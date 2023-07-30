@@ -42,6 +42,9 @@ function NavBar() {
                         <Link to="/user/" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4 sm:mb-0 mb-4">
                             Users
                         </Link>
+                        <Link to="/score/" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4 sm:mb-0 mb-4">
+                            Scores
+                        </Link>
                     </div>
                     <div>
                         {button}

@@ -3,12 +3,13 @@ import MusicSvg from "../../assets/svg/undraw_compose_music_re_wpiw.svg"
 import axios from "axios";
 
 function Home() {
-    const [userCount, setUserCount] = useState(0);
+    const [userCount, setUserCount] = useState(-1);
+    const [scoreCount, setScoreCount] = useState(-1);
 
     useEffect(()=>{
-        const getUserCounts = async () => {
+        const getCounts = async () => {
+            const API_URI = import.meta.env.VITE_API_URI;
             try {
-                const API_URI = import.meta.env.VITE_API_URI;
                 const response = await axios.get(`${API_URI}/api/util/user_count`);
 
                 if (response.status === 200) {
@@ -17,13 +18,23 @@ function Home() {
                     console.error(response.data);
                 }
             } catch (err) {
-                //console.error(err.message);
-                localStorage.removeItem('token');
                 setUserCount(-1)
+            }
+
+            try {
+                const response = await axios.get(`${API_URI}/api/util/score_count`);
+
+                if (response.status === 200) {
+                    setScoreCount(response.data)
+                } else {
+                    console.error(response.data);
+                }
+            } catch (err) {
+                setScoreCount(-1)
             }
         };
 
-        getUserCounts();
+        getCounts();
 
     }, [])
 
@@ -38,7 +49,7 @@ function Home() {
 
                 <div className="grid grid-cols-1 w-60 gap-12  rounded-md px-2">
                     <div className="py-6 px-4 text-2xl">Users Count: <span className="font-extrabold bg-gradient-to-tr from-emerald-500 to-violet-600 bg-clip-text text-transparent">{userCount}</span></div>
-                    <div className="py-6 px-4 text-2xl">Scores Count:<span className="font-extrabold bg-gradient-to-tr from-emerald-500 to-violet-600 bg-clip-text text-transparent">0</span></div>
+                    <div className="py-6 px-4 text-2xl">Scores Count:<span className="font-extrabold bg-gradient-to-tr from-emerald-500 to-violet-600 bg-clip-text text-transparent">{scoreCount}</span></div>
                     <div className="py-6 px-4 text-2xl">Finished Purchase:<span className="font-extrabold bg-gradient-to-tr from-emerald-500 to-violet-600 bg-clip-text text-transparent">0</span></div>
                 </div>
             </div>

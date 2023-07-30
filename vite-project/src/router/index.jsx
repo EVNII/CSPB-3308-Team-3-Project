@@ -5,6 +5,8 @@ import NavBar from '../components/ui/NavBar';
 import UserProfile from '../pages/userProfile';
 import UserList from '../pages/userList';
 import Signup from '../pages/signup';
+import ScoreList from '../pages/ScoreList';
+import ScoreDetail from '../pages/scoreDetail';
 
 export const globalRouters = createBrowserRouter([{
     element: (
@@ -28,6 +30,14 @@ export const globalRouters = createBrowserRouter([{
     {
         path: '/user/',
         element: <UserList />,
+    },
+    {
+        path: '/score',
+        element: <ScoreList />,
+    },
+    {
+        path: '/score/:id',
+        element: <ScoreDetail />,
     },
     {
         path: '/',
