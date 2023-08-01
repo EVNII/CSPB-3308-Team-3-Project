@@ -93,3 +93,14 @@ Trello Screenshot:
 > The Render will will spin down the API server with inactivity. If not able to connect to API server, please refresh the page and wait a few scondes.
 - Monday standup attendance
 
+## Week 8
+Trello Screenshot (*REPLACE*):
+![](img/Trello_2023-08-04.png)
+
+### Sean Keery
+
+- Reviewed code submitted in [Pull Requests](https://github.com/EVNII/CSPB-3308-Team-3-Project/pulls?q=is%3Apr+is%3Aclosed)
+- Added user stories in [Trello](https://trello.com/b/Oz0v3nr9/musicverse-by-the-lightning-bolts)
+- Weekly status added
+- Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
+
