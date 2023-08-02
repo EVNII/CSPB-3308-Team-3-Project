@@ -104,3 +104,7 @@ Trello Screenshot (*REPLACE*):
 - Weekly status added
 - Monday standup attendance [Zoom](https://Dell.zoom.us/j/9581483425?pwd=RUtyYVhQbXVpN1ZhT3BadzR0UWhRdz09)
 
+### Mark Wilkening
+
+- Read codebase provided by Yuzhou to prepare for coding of features
+- Monday standup attendance
