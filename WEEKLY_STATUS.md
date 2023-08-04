@@ -108,3 +108,9 @@ Trello Screenshot (*REPLACE*):
 
 - Read codebase provided by Yuzhou to prepare for coding of features
 - Monday standup attendance
+
+### Yuzhou Shen
+- Implement Score Main Feature including:
+  - Score APIs: `score/pdf/upload`, `score/all`, `score/<score_id>`, and `score/pdf/<score_id>`
+  - Front end: user can view/download the PDFs once they loggin
+- Monday standup attendance
