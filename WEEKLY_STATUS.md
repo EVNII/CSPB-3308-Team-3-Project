@@ -54,7 +54,7 @@ Trello Screenshot:
   
 ### Max Panning
 
-- thought about the different webpages we would want
+- Created menu page for milestone 4
 - learned about how to use sql for the user data about their music sheets
 - Monday standup attendance
   
@@ -83,7 +83,7 @@ Trello Screenshot:
   
 ### Max Panning
 
-- created
+- created the scores table for milestone 5 and the respective test cases
 - Monday standup attendance
   
 ### Yuzhou Shen
