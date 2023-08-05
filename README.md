@@ -73,10 +73,9 @@ pip install -r requirements.txt
 
 ### Run
 ```shell
-export FLASK_APP=app/main
+export FLASK_APP=app
 export FLASK_ENV=development
 export MV_DB_CONNECT="<connection str>"
-export MV_DB_ISPOST="<bool>" # is use PostresSQL connection
 flask run
 ```
 
