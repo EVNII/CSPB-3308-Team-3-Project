@@ -30,6 +30,17 @@ user_info_model = user_ns.model(
     },
 )
 
+user_info_full_parser = user_ns.parser()
+user_info_full_parser.add_argument('username', type=str, required=False)
+user_info_full_parser.add_argument('password', type=str, required=False)
+user_info_full_parser.add_argument('surname', type=str, required=False)
+user_info_full_parser.add_argument('firstname', type=str, required=False)
+user_info_full_parser.add_argument('active', type=bool, required=False)
+user_info_full_parser.add_argument(
+    'recovery_question', type=str, required=False
+)
+user_info_full_parser.add_argument('recovery_answer', type=str, required=False)
+
 
 @user_ns.route('/signup')
 class UserSignup(Resource):
@@ -101,18 +112,66 @@ class LoginInfor(Resource):
 
 
 @user_ns.route('/account/<int:user_id>')
-class GetUser(Resource):
+@user_ns.doc(params={'user_id': 'An User\'s ID'})
+class UserWithID(Resource):
     """
-    `getUser` provides Get method to get specific user
+    `UserWithID` provides Get method to get specific user
         with user's id(`id`)
     """
 
+    @jwt_required(optional=True)
     def get(self, user_id):
         """Get user information with ID"""
+        current_user_id = get_jwt_identity()
+
         user = db.session.query(User).filter_by(user_id=user_id).first()
         if user:
-            return {'id': user.user_id, 'username': user.username}, 200
+            if current_user_id == user_id:
+                resultdict = asdict(user)
+                scores = [asdict(s) for s in user.scores]
+                resultdict['score'] = scores
+                return json.loads(json.dumps(resultdict, default=str)), 200
+            resultdict = {'id': user.user_id, 'username': user.username}
+            scores = [asdict(s) for s in user.scores]
+            resultdict['score'] = scores
+            return json.loads(json.dumps(resultdict, default=str)), 200
         return {'message': f'User with id={user_id} Not exists'}, 404
+
+    @jwt_required()
+    @user_ns.expect(user_info_full_parser)
+    @user_ns.doc(responses={201: 'Success: No Content', 404: 'Not Found'})
+    def put(self, user_id):
+        """Update user information with ID"""
+        current_user_id = get_jwt_identity()
+
+        if user_id != current_user_id:
+            return {
+                'message': f'You cannot update user info with id={user_id}'
+            }, 403
+
+        user = db.session.query(User).filter_by(user_id=user_id).first()
+
+        if user:
+            args = user_info_full_parser.parse_args()
+            if args['username']:
+                user.username = args['username']
+            if args['surname']:
+                user.surname = args['surname']
+            if args['firstname']:
+                user.firstname = args['firstname']
+            if args['active']:
+                user.active = args['active']
+            if args['password']:
+                user.password = generate_password_hash(args['password'])
+            if args['recovery_question']:
+                user.recovery_question = args['recovery_question']
+            if args['recovery_answer']:
+                user.recovery_answer = args['recovery_answer']
+
+            db.session.commit()
+
+            return 201
+        return "Not Found", 404
 
 
 @user_ns.route('/account/')
