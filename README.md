@@ -71,6 +71,13 @@ Render Deployment: https://musicverse-api.onrender.com/SwaggerUI/
 pip install -r requirements.txt
 ```
 
+### Open AI - API Testing
+
+```shell
+pip install openapi-core
+pip install requests
+```
+
 ### Run
 ```shell
 export FLASK_APP=app
