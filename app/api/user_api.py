@@ -131,7 +131,7 @@ class UserWithID(Resource):
                 scores = [asdict(s) for s in user.scores]
                 resultdict['score'] = scores
                 return json.loads(json.dumps(resultdict, default=str)), 200
-            resultdict = {'id': user.user_id, 'username': user.username}
+            resultdict = {'user_id': user.user_id, 'username': user.username}
             scores = [asdict(s) for s in user.scores]
             resultdict['score'] = scores
             return json.loads(json.dumps(resultdict, default=str)), 200
