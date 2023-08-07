@@ -90,7 +90,7 @@ Trello Screenshot:
 - Finish TEMPERARY User Part of SQL CRUD module(Support SQL, and PostreSQL), with Document on [Music Verse Modules Documentation](https://evnii.github.io/CSPB-3308-Team-3-Project/)
 - Deploy Music Verse on [Music Verse](https://musicverse.onrender.com/)
 - Deploy Music Verse API flask Server on [Music Verse API Swagger UI](https://musicverse-api.onrender.com/SwaggerUI/)
-> The Render will will spin down the API server with inactivity. If not able to connect to API server, please refresh the page and wait a few scondes.
+> The Render will will spin down the API server with inactivity. If not able to connect to API server, please refresh the page and wait a few seconds.
 - Monday standup attendance
 
 ## Week 8
@@ -107,6 +107,13 @@ Trello Screenshot (*REPLACE*):
 ### Mark Wilkening
 
 - Read codebase provided by Yuzhou to prepare for coding of features
+- Monday standup attendance
+
+### Max Panning
+
+- Read codebase provided by Yuzhou
+- Created an upload page to allow people to upload pdfs of works
+- started to create a rudimentary testing framework
 - Monday standup attendance
 
 ### Yuzhou Shen
