@@ -1,13 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Avater from "../../assets/svg/undraw_drink_coffee_v3au.svg"
+import LoginContext from "../../context/LoginContext";
+import { Link } from "react-router-dom";
 
 
 function UserProfile() {
     const [user, setuser] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const {id} = useParams();
+    const loginCtx = useContext(LoginContext)
+    let isMyPage = false;
+
+    if(loginCtx.islogin == true && loginCtx.userInfo.user_id == id){
+      isMyPage=true;
+    }
 
     useEffect(()=>{
       const fetchUserData = async () => {
@@ -28,7 +36,11 @@ function UserProfile() {
           <div className="grid grid-cols-2 gap-10 border-b-2 py-6">
             <img src={Avater} className="rounded-full border-4" width="80" height="80" />
             <div className="gpa-1 grid grid-cols-1">
-              <div className="text-2xl font-bold">{user.username}</div>
+              <div className="text-2xl font-bold">{user.username}
+              {isMyPage && <Link className="px-4 appearance-none border-cyan-300 bg-teal-300 mx-3 rounded-xl py-2 text-white" to='/user/edit/'>
+                Edit
+                </Link>}
+              </div>
               <div className="text-gray-500"></div>
             </div>
           </div>
