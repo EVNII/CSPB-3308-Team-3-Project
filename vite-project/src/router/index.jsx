@@ -7,6 +7,7 @@ import UserList from '../pages/userList';
 import Signup from '../pages/signup';
 import ScoreList from '../pages/ScoreList';
 import ScoreDetail from '../pages/scoreDetail';
+import UserEdit from '../pages/userEdit';
 
 export const globalRouters = createBrowserRouter([{
     element: (
@@ -30,6 +31,10 @@ export const globalRouters = createBrowserRouter([{
     {
         path: '/user/',
         element: <UserList />,
+    },
+    {
+        path: '/user/edit',
+        element: <UserEdit />,
     },
     {
         path: '/score',

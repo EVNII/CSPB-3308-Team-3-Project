@@ -38,7 +38,7 @@ function UserList() {
             {users &&  users.map((user, key) => (<div key={key} className="grid grid-cols-2 gap-8 border-b-2">
                     <img src={Avater} className="mx-2 my-2 rounded-full border-4" width="80" height="80" />
                     <div className="grid-cols- mx-2 my-2 grid gap-0">
-                        <Link className="py-2 text-2xl font-bold" to={`/user/${user.id}`}>{user.username}</Link>
+                        <Link className="py-2 text-2xl font-bold" to={`/user/${user.user_id}`}>{user.username}</Link>
                         <div></div>
                     </div>
                 </div>))}
