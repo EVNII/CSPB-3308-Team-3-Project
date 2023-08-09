@@ -7,7 +7,7 @@ import UserList from '../pages/userList';
 import Signup from '../pages/signup';
 import ScoreList from '../pages/ScoreList';
 import ScoreDetail from '../pages/scoreDetail';
-import UploadPDF from '../pages/Upload/UploadPDF';
+import UploadPDF from '../pages/upload';
 
 export const globalRouters = createBrowserRouter([{
     element: (
