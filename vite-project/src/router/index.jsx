@@ -7,7 +7,7 @@ import UserList from '../pages/userList';
 import Signup from '../pages/signup';
 import ScoreList from '../pages/ScoreList';
 import ScoreDetail from '../pages/scoreDetail';
-import UserEdit from '../pages/userEdit';
+import UploadPDF from '../pages/Upload/UploadPDF';
 
 export const globalRouters = createBrowserRouter([{
     element: (
@@ -33,16 +33,16 @@ export const globalRouters = createBrowserRouter([{
         element: <UserList />,
     },
     {
-        path: '/user/edit',
-        element: <UserEdit />,
-    },
-    {
         path: '/score',
         element: <ScoreList />,
     },
     {
         path: '/score/:id',
         element: <ScoreDetail />,
+    },
+    {
+        path: '/upload',
+        element: <UploadPDF />,
     },
     {
         path: '/',
