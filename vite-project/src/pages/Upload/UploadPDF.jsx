@@ -14,7 +14,7 @@ function UploadPDF() {
     price: "",
     pdfFile: null,
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -147,6 +147,9 @@ useEffect(()=>{
                   className="border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-green-500"
                 />
               </div>
+              {
+                error && <span className="text-red-500">{error}</span>
+              }
               <button
                 type="submit"
                 className="bg-teal-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
