@@ -1,0 +1,5 @@
+1009  openapi-generator generate -i https://petstore.swagger.io/v2/swagger.json -g k6 -o test/
+https://github.com/marketplace/actions/k6-load-test
+https://petstore.swagger.io/
+https://github.com/marketplace/actions/generate-client-library-w-the-openapitools-generator
+https://k6.io/blog/load-testing-your-api-with-swagger-openapi-and-k6/
