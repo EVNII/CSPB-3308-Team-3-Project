@@ -32,16 +32,24 @@ API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 * Feature - User Edit Account Information
 
 ### In the middle of implementing
+
 * Feature - Reset Password
 * API testing framework
 
 ### To be implemented
+
 * Feature - Purchase Score
-* Optimize Storage of Score/PDFs
+* Optimize Storage of Score/PDFs (i.e Amazon S3)
 * Frontend Username validation
 * Frontend Password validation
 * Waiting login animation
 * Update method for counting downloads/scores/views
+* Backend upload files' type validation
+* Frontend error message when the files cannot be corretly presented to client
+* More Error Message to client
 
 ### Any bugs or problems?
-* Price doesn't update, its just $0 for everything
+
+* Price is a valid field, but everyone still could downlaod any score without purchasing.
+* When user field edit, and then goes to user list page, the production environment will bring error in browswer while there is no problem in development environment.
+* When client receive a file which is not in PDF format, the browser still open a tab try to showing the PDF file. Ref #10.
