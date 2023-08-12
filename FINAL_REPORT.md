@@ -21,7 +21,7 @@ https://trello.com/w/thelightningboltscspb3308group3
 https://github.com/EVNII/CSPB-3308-Team-3-Project
 
 ### Deployment:
-Front end: https://musicverse.onrender.com/
+Front end: https://musicverse.onrender.com/  
 API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 
 ### Completed
