@@ -113,7 +113,6 @@ Trello Screenshot (*REPLACE*):
 
 - Read codebase provided by Yuzhou
 - Created an upload page to allow people to upload pdfs of works
-- started to create a rudimentary testing framework
 - Monday standup attendance
 
 ### Yuzhou Shen
