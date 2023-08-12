@@ -24,19 +24,23 @@ https://github.com/EVNII/CSPB-3308-Team-3-Project
 https://musicverse.onrender.com/
 
 ### Completed
-* Item 1
-* Item 2
-* Item 3
+* Navigation Bar
+* Login Page
+* User Table with Login & Account Information
+* Feature - Upload Score
+* Feature - User Edit Account Information
 
 ### In the middle of implementing
-* Item 1
-* Item 2
-* Item 3
+* Feature - Reset Password
+* API testing framework
 
 ### To be implemented
-* Item 1
-* Item 2
-* Item 3
+* Feature - Purchase Score
+* Optimize Storage of Score/PDFs
+* Frontend Username validation
+* Frontend Password validation
+* Waiting login animation
+* Update method for counting downloads/scores/views
 
 ### Any bugs or problems?
 * Item 1
