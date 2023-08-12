@@ -21,7 +21,8 @@ https://trello.com/w/thelightningboltscspb3308group3
 https://github.com/EVNII/CSPB-3308-Team-3-Project
 
 ### Deployment:
-https://musicverse.onrender.com/
+Front end: https://musicverse.onrender.com/
+API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 
 ### Completed
 * Navigation Bar
@@ -43,6 +44,4 @@ https://musicverse.onrender.com/
 * Update method for counting downloads/scores/views
 
 ### Any bugs or problems?
-* Item 1
-* Item 2
-* Item 3
+* Price doesn't update, its just $0 for everything
