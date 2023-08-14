@@ -53,3 +53,6 @@ API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 * Price is a valid field, but everyone still could download any score without purchasing.
 * When user field is edited, and then goes to the user list page, the production environment will show an error in browswer while there is no problem in the development environment.
 * When client receives a file which is not in PDF format, the browser still opens a tab trying to show the PDF file. Ref #10.
+
+### Video Demo
+https://drive.google.com/file/d/1ZXOOaLVPQ1jqJjEo8NVHFT1qYdaYiIwW/view?usp=drive_link  
