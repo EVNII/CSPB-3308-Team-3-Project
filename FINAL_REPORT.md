@@ -34,7 +34,7 @@ API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 ### In the middle of implementing
 
 * Feature - Reset Password
-* API testing framework
+* API & User testing frameworks
 
 ### To be implemented
 
@@ -47,12 +47,16 @@ API Framework: https://musicverse-api.onrender.com/SwaggerUI/
 * Backend upload files' type validation
 * Frontend error message when the files cannot be corretly presented to client
 * More Error Message to client
-
+* Metrics such as popularity, views and system performance
+* [Secure Software Badge](https://github.blog/2022-01-19-reducing-security-risk-oss-actions-opensff-scorecards-v4/)
 ### Any bugs or problems?
 
 * Price is a valid field, but everyone still could download any score without purchasing.
 * When user field is edited, and then goes to the user list page, the production environment will show an error in browswer while there is no problem in the development environment.
 * When client receives a file which is not in PDF format, the browser still opens a tab trying to show the PDF file. Ref #10.
+* Github actions running a headless chrome browser was hard to simulate in our coding.csel.io environment
+* Git pre-commit hook provided by ViteKJS needs to have appropriate ignore files created.
 
 ### Video Demo
 https://drive.google.com/file/d/1ZXOOaLVPQ1jqJjEo8NVHFT1qYdaYiIwW/view?usp=drive_link  
+
